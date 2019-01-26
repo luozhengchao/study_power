@@ -20,19 +20,26 @@ public class TestShardJedis {
         config.setMaxTotal(100);
 
         List<JedisShardInfo> infos = new ArrayList<>();
-        JedisShardInfo info1 = new JedisShardInfo("172.16.93.131", 6379);
-        JedisShardInfo info2 = new JedisShardInfo("172.16.93.131", 6380);
+
+        //docker reids 分片
+        JedisShardInfo info1 = new JedisShardInfo("172.16.93.134", 7000);
+        JedisShardInfo info2 = new JedisShardInfo("172.16.93.134", 7001);
+        JedisShardInfo info3 = new JedisShardInfo("172.16.93.134", 7002);
         infos.add(info1);
         infos.add(info2);
+        infos.add(info3);
+
+
 
         ShardedJedisPool jedisPool = new ShardedJedisPool(config, infos);
 
         ShardedJedis jedis = jedisPool.getResource();
 
-        for (int i = 0; i < 10; i++) {
-            jedis.set("k" + i, "v" + i);
-        }
+//        for (int i = 0; i < 10; i++) {
+//            jedis.set("k" + i, "v" + i);
+//        }
 
+        System.out.println(jedis.get("k5"));
         jedisPool.returnResource(jedis);
         jedisPool.close();
     }

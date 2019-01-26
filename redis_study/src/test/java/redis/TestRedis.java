@@ -12,9 +12,9 @@ public class TestRedis {
 //        Jedis jedis = new Jedis("172.16.93.131", 6380);
 
         //docker redis单台测试
-        Jedis jedis = new Jedis("172.16.93.134", 7000);
+        Jedis jedis = new Jedis("172.16.93.134", 7002);
 
-        jedis.set("b", "success2");
+        jedis.set("b", "success");
         System.out.println(jedis.get("b"));
         jedis.close();
     }
