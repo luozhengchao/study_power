@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @Athor luozhengchao
+ * @Author luozhengchao
  * @Date 2019/1/26 12:32 AM
  */
 public class User implements Serializable {
@@ -51,6 +51,7 @@ public class User implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
 
     @Override
     public String toString() {

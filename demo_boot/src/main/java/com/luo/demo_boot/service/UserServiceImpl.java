@@ -5,16 +5,17 @@ import com.luo.demo_boot.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @Athor luozhengchao
+ * @Author luozhengchao
  * @Date 2019/1/26 12:46 AM
  */
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
 
@@ -26,5 +27,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User get(Integer id){
         return userMapper.get(id);
+    }
+
+    @Override
+    public void insert(User user) {
+        userMapper.insert(user);
     }
 }
