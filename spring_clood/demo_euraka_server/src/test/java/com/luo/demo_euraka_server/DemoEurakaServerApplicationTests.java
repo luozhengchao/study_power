@@ -9,7 +9,7 @@ package com.luo.demo_euraka_server;
 //@SpringBootTest
 public class DemoEurakaServerApplicationTests {
 
-//    @Test
+    //    @Test
     public void contextLoads() {
     }
 

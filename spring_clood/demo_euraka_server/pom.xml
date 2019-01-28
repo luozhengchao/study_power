@@ -25,6 +25,7 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
 
+        <!--jdk1.8后引入解决类找不到bug-->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
