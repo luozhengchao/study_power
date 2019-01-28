@@ -1,0 +1,16 @@
+package com.luo.demo_eureka_consumer_hystrix;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
+
+@SpringCloudApplication
+@EnableFeignClients
+public class DemoEurekaConsumerHystrixApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoEurekaConsumerHystrixApplication.class, args);
+	}
+
+}
+
