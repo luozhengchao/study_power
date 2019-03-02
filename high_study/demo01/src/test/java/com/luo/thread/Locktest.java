@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Author luozhengchao
  * @Date 2019/3/2 4:44 PM
  */
-public class Threadlocaltest {
+public class Locktest {
 
     static class A implements Runnable{
 
