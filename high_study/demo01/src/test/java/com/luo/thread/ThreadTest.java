@@ -3,6 +3,8 @@ package com.luo.thread;
 import org.junit.Test;
 import org.mockito.internal.matchers.InstanceOf;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 
 /**
@@ -99,7 +101,56 @@ public class ThreadTest {
     @Test
     public void test05(){
         int i = Runtime.getRuntime().availableProcessors();
+        long l = Runtime.getRuntime().freeMemory() / 1024/1024;
+        System.out.println(l);
         System.out.println(i);
     }
+
+    /**
+     * 计票，线程安全实现
+     */
+    class CounterTicketer implements Runnable{
+        volatile int ticker; //保证可见性，禁止指令重排
+
+        private synchronized void doTicketer() {//默认加锁对象为this
+            for (int i = 0; i < 10; i++) {
+                ticker ++;
+            }
+        }
+
+        @Override
+        public  void run() {
+            doTicketer();
+        }
+
+        public Integer getTicket(){
+            return ticker;
+        }
+    }
+
+    @Test
+    public void test06(){
+
+        List<Thread> l = new ArrayList<>(100);
+
+        CounterTicketer a = new CounterTicketer();
+
+        for (int i = 0; i < 100; i++) {
+            l.add(new Thread(a));
+        }
+
+        for (Thread thread : l) {
+            thread.start();
+        }
+
+        while (Thread.activeCount() > 2){
+            System.out.println(Thread.activeCount());
+            Thread.yield();
+        }
+
+        System.out.println(a.getTicket());
+    }
+
+
 
 }
