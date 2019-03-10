@@ -1,11 +1,8 @@
 package com.luo.nio;
 
-import io.netty.channel.ServerChannel;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.net.ServerSocket;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -13,8 +10,6 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Timer;
 
 /**
  * 非阻塞NIO selector测试类

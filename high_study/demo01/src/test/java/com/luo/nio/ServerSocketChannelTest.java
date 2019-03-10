@@ -1,6 +1,7 @@
 package com.luo.nio;
 
 
+import org.apache.catalina.startup.Tomcat;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -59,7 +60,6 @@ public class ServerSocketChannelTest {
         byteBuffer.put(str.getBytes());
 
         byteBuffer.flip();
-
         socketChannel.write(byteBuffer);
         byteBuffer.clear();
         socketChannel.close();
