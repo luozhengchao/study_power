@@ -2,6 +2,8 @@ package com.luo.demo01.controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @Author luozhengchao
  * @Date 2019/3/3 11:43 AM
@@ -10,10 +12,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping
 public class TestController {
 
+
     @GetMapping(value = "/say/{user}")
     @ResponseBody
-    public String sayHello(@PathVariable("user") String user){
-
+    public String sayHello(HttpServletRequest request, @PathVariable("user") String user){
         return user;
+
+
     }
 }
