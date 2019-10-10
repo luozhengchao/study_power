@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private StringBuffer submit(final String user, final StringBuffer buffer) {
-        ThreadPoolTaskExecutor executorPool = asyncConfig.getAsyncExecutor();
+        ThreadPoolTaskExecutor executorPool = new ThreadPoolTaskExecutor();
         for (int i = 0; i <= 100; i++) {
             Future<?> submit = executorPool.submit(new Thread() {
 
